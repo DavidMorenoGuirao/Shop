@@ -1,5 +1,6 @@
-body {
+*{
   margin: 0;
+  padding: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
@@ -7,7 +8,564 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-code {
+code{
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.App{
+  max-width: 1550px;
+  width: 100%;
+  min-height: 100vh;
+  margin: 0 auto;
+  box-shadow: 0 5px 6px #08a05ca4;
+  padding: 0 15px;
+  box-sizing: border-box;
+}
+
+/* ----------------------------------------HEADER------------------------ */
+
+header{
+  width: 97%;
+  min-height: 100px;
+  max-width: 1530px;
+  overflow: hidden;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+  position: fixed;
+  box-sizing: border-box;
+  background-color: white; 
+  box-shadow:  0 5px 10px #08a05c50;
+}
+
+a{
+  color: black;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+a:hover{
+  color: #08a05c;
+}
+
+li{
+  list-style: none;
+}
+
+header ul{
+  display: flex;
+  padding: 0;
+  margin: 0; 
+}
+
+header ul li {
+  padding: 0 1rem;
+}
+
+header ul li a{
+  font-weight: bold;
+}
+
+header .cart{
+  position: relative;
+  cursor: pointer;
+}
+
+header .cart box-icon{
+  width: 45px;
+  height: 45px;
+}
+
+header .cart span{
+  position: absolute;
+  top: -1rem;
+  right: .7rem;
+  width: 1rem;
+  height: 1rem;
+  border: 1px solid red;
+  border-radius: 50%;  
+  color: white;
+  padding: 0rem;
+  font-size: 1.1rem;
+  font-weight: bold;
+  background-color: crimson;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* -------------------------- INICIO ---------------------------- */
+
+.inicio{
+  width: 100%;
+  margin: 0 auto;
+  padding-top: 9rem;
+}
+
+.inicio h1{
+  font-size: 2rem;
+  color:#08a05c;
+}
+
+.inicio img{
+  width: 100%;  
+}
+
+/* ------------------------ PRODUCTOS ----------------------------- */
+
+.title{
+  font-size: 2rem;
+  padding: 10rem 0 0 0;
+  color:#08a05c;
+}
+
+.products{
+  padding: 5rem 1rem;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(22rem, 1fr));
+  gap: 3rem 2rem;
+  box-sizing: border-box;  
+}
+
+.product{
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 1px 10px 10px 2px rgba(0,0,0,0.2);
+  border: 6px solid transparent;
+  border-radius: 5px;  
+}
+
+.product:hover{
+  border: 6px solid #08a05c55;
+}
+
+.product__img img{
+  width: 300px;
+}
+
+.product__footer{
+  padding: 1rem;
+}
+
+.product__footer h1{
+  font-weight: 600; 
+  font-size: 1.5rem;
+  color: #1a202c;
+  font-family: Helvetica, sans-serif;
+}
+
+.product__footer p{
+  font-weight: 700;
+  color: rgba(0, 0, 0, 0.555);
+  text-transform: uppercase;
+  font-size: 18px;
+}
+
+.product__footer .price{  
+  font-size: 1.9rem;
+  color: #1a202c;
+}
+
+.product .button {
+  width: 100%;
+  height: 45px;
+  display: grid;
+  grid-template-columns: .5fr .5fr;
+  gap: 0 5rem;
+  padding: .2rem 1rem;
+  margin-left: -2rem;
+  margin-right: -3rem;
+}
+
+.button .btn{  
+  outline: 0;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.button button{
+  background-color: transparent;
+  max-width: 200px;
+  width: 100%;
+  /* margin: 0 auto; */
+  font-size: 1.5rem;
+  color: black;
+  font-weight: 100;
+  margin-left: 2rem;
+  margin-right: 2rem;
+  margin-bottom: 0.5rem;
+  border: 1px solid black;
+}
+
+.button button:hover{
+  color: #08a05c;
+}
+
+.button div{
+  background-color: #808a868e;
+  display: grid;  
+  align-items: center;
+  text-align: center;
+  margin-left: 2rem;
+  margin-right: 2rem;
+  margin-bottom: 0.5rem;
+  border-radius: 5px;  
+  transition: 300ms;
+  border: 1px solid black;
+}
+
+.button div:hover{
+  background-color: #12b1718e;  
+}
+
+.button div a{
+  color: white;
+  font-weight: 100;
+}
+
+.button div a:hover{
+  color: rgb(160, 14, 14);
+}
+
+/* ------------------------------- CARRITO -------------------------- */
+
+.carritos{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transition: all 300ms ease-in-out;
+  background-color: rgba(0, 0, 0, .6);
+  z-index: 2;
+  padding-bottom: 5rem;
+  visibility: hidden;
+}
+
+.carrito{
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(1);
+  width: 60%;
+  height: 80%;
+  border-radius: 8px;
+  overflow-x: scroll;
+  transition: all 300ms ease-in-out;
+  background-color: white;
+  opacity: 0; 
+  visibility: hidden;
+}
+
+.carrito h2{
+  text-align: center;
+  font-size: 2rem;
+}
+
+.carritos.show{
+  visibility: visible;
+}
+
+.carrito.show {
+  transform: translate(-50%, -50%) scale(1.1);
+  opacity: 1;
+  visibility: visible;
+}
+
+.carrito__close box-icon{
+  display: inline-block;
+  width: 50px;
+  height: 40px;
+  cursor: pointer;
+  transform: all 300ms ease-in-out;
+  margin: 2rem 0 0 2rem;
+}
+
+.carrito__close box-icon:hover{
+  fill: rgb(22, 212, 63);
+}
+
+.carrito__center{
+  width: 90%;
+  margin: 0 auto;  
+}
+
+.carrito__item{
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr 1fr;
+  width: 80%;
+  margin: 2rem auto;
+  box-shadow: 0 1px 10px #08a05c;
+  border-radius: 5px;
+  font-family: Helvetica, sans-serif;
+}
+
+.carrito__item img{
+  width: 9rem;
+}
+
+.carrito__item h3{
+  margin-top: 1.5rem;
+  font-weight: 600;
+  font-size: 1.5rem;
+}
+
+.carrito__item .price{
+  color: #1a202c;
+  font-size: 2rem;
+  font-weight: bold;
+  text-align: start;
+  margin-left: -1rem;
+}
+
+.carrito__item box-icon{
+  fill: #08a05c;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  margin-top: .3rem;
+}
+
+.carrito__item .cantidad{
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.carrito__item .remove__item box-icon{
+  width: 60px;
+  height: 80px;
+  fill: crimson;
+  margin-top: 2rem;  
+}
+
+.carrito__footer{
+  text-align: center;
+  margin-bottom: 3rem;  
+}
+
+.carrito__footer h3{
+  font-size: 2rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.carrito__footer .btn{
+  display: inline-block;
+  padding: .3rem 1rem;
+  font-size: 1.2rem;
+  background-color: #08a05c;
+  border: 0;
+  outline: 0;
+  cursor: pointer;  
+}
+
+.carrito__footer .btn{
+  display: inline-block;
+  padding: .3rem 1rem;
+  font-size: 1.2rem;
+  background-color: #08a05c;
+  border: 0;
+  outline: 0;
+  cursor: pointer;
+}
+
+.carrito__footer .btn:hover{
+  background-color: #0f5c39;
+  color: white;
+}
+
+/* -------------------------- DETALLES PRODUCTO ------------------- */
+
+.detalles{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding: 8rem 1rem 0 1rem ;
+  box-sizing: border-box;
+}
+
+.detalles h2{
+  text-align: center;
+  font-size: 3rem;
+  width: 100%;
+  max-width: 1500px;
+}
+
+.detalles .price{
+  font-size: 2rem;
+  width: 100%;
+  color: #08a05c;
+}
+
+.detalles button{
+  max-width: 300px;
+  margin: 1rem 0 0 0;
+  padding: 1rem 1rem;
+  border: none;
+  outline: 0;
+  background-color: #3033d3;
+  font-size: 1.6rem;
+  color: white;
+  font-weight: 600;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.detalles .grid{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem 1rem;
+  max-width: 350px;
+}
+
+.detalles .grid > .nuevo, .size{
+  padding: 1rem 2rem;
+  border-radius:8px;
+  font-size: 2rem;
+  font-weight: 600;
+  color: white;
+}
+
+.detalles .grid .nuevo{
+  background-color: #08a05c;
+}
+
+.detalles .grid .size{
+  background-color: #f1365b;
+  display: flex;
+}
+
+.detalles .grid .size select{
+  border: none;
+  outline: 0;
+  font-size: 2rem;
+  background-color: #f1365b;
+  color: white;
+  cursor: pointer;
+}
+
+.detalles img{
+  min-height: 300px;
+  object-fit: contain;
+  margin-top: -3rem;
+  z-index: -1;
+}
+
+.detalles .description{
+  font-size: 1.1rem;
+  max-width: 1300px;
+  width: 100%;
+  letter-spacing: 1px;
+  color: #5f5d5d;
+  margin: 0 auto;
+  font-weight: 500;
+}
+
+.detalles .description b{
+  font-size: 1.4rem;
+  color: #30333a;
+}
+
+.detalles input{
+  /* max-width: 700; */
+  margin: 0 auto;
+  /* width: 100%; */
+  margin-bottom: 2rem;  
+}
+
+/* ------------------ BARRA DESLIZANTE V.2 -------------------- */
+
+.detalles input[type=range] {
+   -webkit-appearance: none;
+  background: -webkit-linear-gradient(#d9dcde, #999a9c) no-repeat;
+  background-size: 100% 100%; 
+  width: 100px;
+  border-radius: 10px;
+}
+
+.detalles input[type=range]::-webkit-slider-thumb {
+  -webkit-appearance: none;  
+}    
+
+.detalles input[type=range]::-webkit-slider-runnable-track {
+  height: 11.5px;
+  border-radius: 10px;
+  box-shadow: 0 1px 1px #def3f8, inset 0 .125em .125em #0d1112;  
+}
+
+.detalles input[type=range]:focus {
+  outline: none;
+}
+
+.detalles input[type=range]::-webkit-slider-thumb {  
+  height: 20px;
+  width: 20px;
+  margin-top: -5px;
+  background: #4d4e4fa7; 
+  border-radius: 50%;
+  border: solid 0.14rem rgba(17, 17, 17, 0.349);
+  box-shadow: 0 .125em .125em #3b4547; 
+}
+
+.relacionados{
+  text-align: center;
+  background-color: #2e2e2e;
+  color: white;
+  max-width: 350px;
+  width: 100%;
+  margin: 2rem auto;
+  font-size: 18px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+}
+
+/* ---------------------------- MEDIA ----------------------------- */
+
+@media only screen and (max-width: 1000px){
+  .carrito__item{
+    width: 92%;
+  }  
+}
+
+@media only screen and (max-width: 925px){
+  .button .btn{
+    font-size: smaller;
+  }
+}
+
+@media only screen and (max-width: 700px){
+  .carrito{
+    width: 100%;
+    height: 100%;
+    padding: 1rem;
+  }
+  .carrito__item h3{
+    font-size: 1.2rem;    
+  }
+}
+
+@media only screen and (max-width: 600px){
+  header ul{
+    display: none;
+  }
+  .button .btn{
+    font-size: smaller;
+  }
+
+}
+
+@media only screen and (max-width: 450px){
+  .carrito__item h3{
+    width: 0.8rem;
+  } 
+  carrito__item .remove__item box-icon{
+    width: 10px;
+    height: 70px;
+  }
+}
+
